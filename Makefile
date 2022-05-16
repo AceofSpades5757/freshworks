@@ -26,7 +26,11 @@ venv:
 	${VENV_PIP} install -r dev-requirements.txt
 
 test:
-	${VENV_PYTHON} -m unittest discover --start-directory tests --pattern *_test.py
+	${VENV_PYTHON} -m unittest \
+		discover \
+		--start-directory tests \
+		--pattern *_test.py \
+		--verbose
 
 clean:
 	@echo "Removing temporary files, caches, and build files."
