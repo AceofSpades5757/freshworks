@@ -17,6 +17,7 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     packages=setuptools.find_packages('src'),
     package_dir={'': 'src', 'freshdesk': 'src/freshdesk'},
+    test_suite="tests",
     python_requires='>=3.6',
     install_requires=['requests', 'python-dateutil'],
     classifiers=[
