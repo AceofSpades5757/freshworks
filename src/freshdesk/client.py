@@ -11,6 +11,11 @@ from requests.models import Response
 
 class Client:
 
+    """ Represents a Freshdesk client to interacto with their REST API.
+
+    Specifically this is for the 2nd Version of their API.
+    """
+
     api = SimpleNamespace()
 
     def __init__(
@@ -22,13 +27,11 @@ class Client:
     ):
 
         self.domain = domain
+        self.api_key = api_key
         self.plan = plan
         self.version = version
 
-        self.api_key = api_key
-
         self.history: list[Response] = []
-
         self.limits: list[LimitInfo] = []
 
     @property
@@ -42,14 +45,6 @@ class Client:
     @property
     def _api_route(self) -> str:
         return '/api'
-
-    def _api_uri(self, resource: Resource) -> str:
-        return (
-            self.base_url
-            + self._api_route
-            + self.version.path
-            + resource.value
-        )
 
     def _request(self, url: str, method: str = 'GET', **kwargs):
         """ All HTTP requests are made through this method. """
