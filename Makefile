@@ -40,3 +40,13 @@ clean:
 	rm -rf **/logs/
 	rm -rf *.log
 	rm -rf **/*.log
+
+build:
+	@echo "Building $(PROJECT_NAME)."
+	# Build
+	${VENV_PYTHON} setup.py sdist bdist_wheel
+
+release: build
+	@echo "Deploying $(PROJECT_NAME) to PyPi."
+	${VENV_PIP} install --upgrade twine
+	${VENV_PYTHON} -m twine upload dist/*
