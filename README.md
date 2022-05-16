@@ -3,3 +3,12 @@
 # Description
 
 Python client library for interacting with Freshworks products.
+
+# Usage
+
+``` python
+from freshdesk import Client
+
+
+fd = Client(domain='mydomain', api_key='MY_API_KEY')
+```
