@@ -1,3 +1,4 @@
+""" Test Client """
 import unittest
 
 from freshdesk import Client
