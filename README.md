@@ -12,9 +12,25 @@ This will install the `freshdesk` package. See below for usage and additional de
 
 # Usage
 
+## Basic
+
 ``` python
 from freshdesk import Client
 
 
 fd = Client(domain='mydomain', api_key='MY_API_KEY')
+```
+
+## Different Plan
+
+``` python
+from freshdesk import Client
+from freshdesk import Plan
+
+
+fd = Client(
+    domain='mydomain',
+    api_key='MY_API_KEY',
+    plan=Plan.ESTATE,
+)
 ```
