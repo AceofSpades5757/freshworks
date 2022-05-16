@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import datetime
 
-from freshdesk.constants import ENCODING
+from freshdesk._constants import ENCODING
 
 
 @dataclass
