@@ -12,6 +12,10 @@ help:
 	@echo Manage $(PROJECT_NAME). Usage:
 	@echo
 	@echo make test - Test $(PROJECT_NAME).
+	@echo make venv - Create virtual environment.
+	@echo make clean - Remove caches, temp files, build files, etc.
+	@echo make build - Build wheels.
+	@echo make publish - Publish to PyPi.
 
 venv:
 	-${PYTHON} -m pip install --upgrade pip
@@ -46,7 +50,7 @@ build:
 	# Build
 	${VENV_PYTHON} setup.py sdist bdist_wheel
 
-release: build
+publish: build
 	@echo "Deploying $(PROJECT_NAME) to PyPi."
 	${VENV_PIP} install --upgrade twine
 	${VENV_PYTHON} -m twine upload dist/*
