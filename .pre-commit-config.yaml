@@ -32,4 +32,4 @@ repos:
   hooks:
   - id: mypy
     name: Code Linter (Type Checking with mypy)
-    additional_dependencies: [types-pyyaml]
+    additional_dependencies: [types-requests]
