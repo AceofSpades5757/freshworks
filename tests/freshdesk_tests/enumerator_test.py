@@ -42,3 +42,28 @@ class TestPlan(unittest.TestCase):
         self.assertEqual(forest.rates.ticket_update, 280)
         self.assertEqual(forest.rates.ticket_list, 200)
         self.assertEqual(forest.rates.contacts_list, 200)
+
+
+class TestAPIVersion(unittest.TestCase):
+    """ Test Freshdesk APIVersion """
+
+    def test_paths(self) -> None:
+        """ Test url path. """
+
+        v1 = APIVersion(1)
+        v2 = APIVersion(2)
+
+        self.assertEqual(v1.path, '/v1')
+        self.assertEqual(v2.path, '/v2')
+
+    def test_constructors(self) -> None:
+        """ Test the different ways a user would want to generate a version.
+        """
+
+        v1_int = APIVersion(1)
+        v1_dot = APIVersion.V1
+        v2_int = APIVersion(2)
+        v2_dot = APIVersion.V2
+
+        self.assertEqual(v1_int, v1_dot)
+        self.assertEqual(v2_int, v2_dot)
