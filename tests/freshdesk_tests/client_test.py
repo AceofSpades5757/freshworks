@@ -5,14 +5,14 @@ from freshdesk import Client
 
 
 class TestClient(unittest.TestCase):
-    """ Test Freshdesk Client """
+    """Test Freshdesk Client"""
 
     def test_simple(self) -> None:
-        """ The most simple set of tests. """
+        """The most simple set of tests."""
         client = Client('dummy-domain', 'API_KEY')
 
     def test_paths(self) -> None:
-        """ Test the client paths. """
+        """Test the client paths."""
         client = Client('test', 'API_KEY')
 
         self.assertEqual(client.domain, 'test')

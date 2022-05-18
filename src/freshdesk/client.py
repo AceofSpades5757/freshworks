@@ -1,5 +1,7 @@
 from datetime import datetime
 from types import SimpleNamespace
+from typing import Dict
+from typing import List
 
 import requests
 from freshdesk.enumerators import APIVersion
@@ -11,7 +13,7 @@ from requests.models import Response
 
 class Client:
 
-    """ Represents a Freshdesk client to interacto with their REST API.
+    """Represents a Freshdesk client to interacto with their REST API.
 
     Specifically this is for the 2nd Version of their API.
     """
@@ -31,8 +33,8 @@ class Client:
         self.plan = plan
         self.version = version
 
-        self.history: list[Response] = []
-        self.limits: list[LimitInfo] = []
+        self.history: List[Response] = []
+        self.limits: List[LimitInfo] = []
 
     @property
     def hostname(self) -> str:
@@ -47,7 +49,7 @@ class Client:
         return '/api'
 
     def _request(self, url: str, method: str = 'GET', **kwargs):
-        """ All HTTP requests are made through this method. """
+        """All HTTP requests are made through this method."""
 
         response = requests.request(
             method=method,
@@ -62,11 +64,11 @@ class Client:
         return response
 
     def _rate_limit_check(self) -> None:
-        """ Check if we're below this app's rate limit threshold. """
+        """Check if we're below this app's rate limit threshold."""
         # Unimplemented
 
     @staticmethod
-    def _get_limit_info(headers) -> dict[str, int]:
+    def _get_limit_info(headers) -> Dict[str, int]:
 
         calls_per_minute = int(headers.get('X-RateLimit-Total', 0))
         calls_remaining = int(headers.get('X-RateLimit-Remaining', 0))
@@ -81,7 +83,7 @@ class Client:
         )
 
     def _parse_response(self, response: requests.Response):
-        """ Parse response and update self.
+        """Parse response and update self.
 
         * Limit Information
         * Pagination
@@ -91,7 +93,7 @@ class Client:
         headers = response.headers
 
         # Limit Information
-        limit_info: dict[str, int] = self._get_limit_info(headers)
+        limit_info: Dict[str, int] = self._get_limit_info(headers)
         limits: LimitInfo = LimitInfo(
             datetime=datetime.now().astimezone(),
             calls_per_minute=limit_info['calls_per_minute'],
@@ -121,5 +123,5 @@ class Client:
         # "Location": https://domain.freshdesk.com/api/v2/tickets/1
         resource_location = headers.get('Location', '')
         self.resource_location = (
-            resource_location
-        )  # Hotfix to add this to model  # noqa: 501
+            resource_location  # Hotfix to add this to model  # noqa: 501
+        )

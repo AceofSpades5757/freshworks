@@ -6,10 +6,10 @@ from freshdesk import Plan
 
 
 class TestPlan(unittest.TestCase):
-    """ Test Freshdesk enumerators """
+    """Test Freshdesk enumerators"""
 
     def test_variants(self) -> None:
-        """ Test different variants, and their interface.
+        """Test different variants, and their interface.
 
         WARNING: The tests were copy and pasted values. There doesn't need to
         be this many tests.
@@ -45,10 +45,10 @@ class TestPlan(unittest.TestCase):
 
 
 class TestAPIVersion(unittest.TestCase):
-    """ Test Freshdesk APIVersion """
+    """Test Freshdesk APIVersion"""
 
     def test_paths(self) -> None:
-        """ Test url path. """
+        """Test url path."""
 
         v1 = APIVersion(1)
         v2 = APIVersion(2)
@@ -57,8 +57,7 @@ class TestAPIVersion(unittest.TestCase):
         self.assertEqual(v2.path, '/v2')
 
     def test_constructors(self) -> None:
-        """ Test the different ways a user would want to generate a version.
-        """
+        """Test the different ways a user would want to generate a version."""
 
         v1_int = APIVersion(1)
         v1_dot = APIVersion.V1

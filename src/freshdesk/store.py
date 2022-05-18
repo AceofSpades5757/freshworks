@@ -18,9 +18,13 @@ class LimitInfo:
 
     @classmethod
     def from_bytes(cls, data: bytes) -> LimitInfo:
-        timestamp, calls_per_minute, calls_remaining, calls_consumed, retry_time = data.decode(
-            ENCODING
-        ).split(
+        (
+            timestamp,
+            calls_per_minute,
+            calls_remaining,
+            calls_consumed,
+            retry_time,
+        ) = data.decode(ENCODING).split(
             ';'
         )  # noqa: E501
         return cls(
