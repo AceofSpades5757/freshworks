@@ -1,10 +1,9 @@
-from enum import auto
 from enum import Enum
-from enum import IntEnum
 from types import SimpleNamespace
 
 
 class Plan(Enum):
+    """ A Freshdesk plan. """
 
     BLOSSOM = dict(
         per_minute=100,
@@ -41,19 +40,3 @@ class Plan(Enum):
     def __init__(self, value):
 
         self.rates = SimpleNamespace(**self.value)
-
-
-class APIVersion(IntEnum):
-
-    V1 = auto()
-    V2 = auto()
-
-    def __init__(self, value):
-
-        self.path = f'/v{value}'
-
-
-class Resource(Enum):
-
-    TICKET = '/tickets'
-    TICKET_FIELDS = '/admin/ticket_fields'

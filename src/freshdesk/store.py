@@ -8,6 +8,7 @@ from freshdesk._constants import ENCODING
 
 @dataclass
 class LimitInfo:
+    """ Represents limit rate information. """
 
     datetime: datetime
 
