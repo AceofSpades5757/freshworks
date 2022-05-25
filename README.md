@@ -8,7 +8,10 @@ Python client library for interacting with Freshworks products.
 
 `pip install freshworks`
 
-This will install the `freshdesk` package. See below for usage and additional details.
+This will install all available packages for working with those Freshworks products.
+
+* `freshdesk`
+* `freshcaller`
 
 # Usage
 
