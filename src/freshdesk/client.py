@@ -37,7 +37,7 @@ class Client:
 
     @property
     def hostname(self) -> str:
-        return f'https://{self.domain}.freshdesk.com'
+        return f"https://{self.domain}.freshdesk.com"
 
     @property
     def base_url(self) -> str:
@@ -45,15 +45,15 @@ class Client:
 
     @property
     def _api_route(self) -> str:
-        return '/api'
+        return "/api"
 
-    def _request(self, url: str, method: str = 'GET', **kwargs):
+    def _request(self, url: str, method: str = "GET", **kwargs):
         """All HTTP requests are made through this method."""
 
         response = requests.request(
             method=method,
             url=url,
-            auth=(self.api_key, 'dummy'),
+            auth=(self.api_key, "dummy"),
             **kwargs,  # type: ignore
         )
         self.history.append(response)
@@ -69,10 +69,10 @@ class Client:
     @staticmethod
     def _get_limit_info(headers) -> Dict[str, int]:
 
-        calls_per_minute = int(headers.get('X-RateLimit-Total', 0))
-        calls_remaining = int(headers.get('X-RateLimit-Remaining', 0))
-        calls_consumed = int(headers.get('X-RateLimit-Used-CurrentRequest', 0))
-        retry_time = int(headers.get('Retry-After', 0))  # seconds
+        calls_per_minute = int(headers.get("X-RateLimit-Total", 0))
+        calls_remaining = int(headers.get("X-RateLimit-Remaining", 0))
+        calls_consumed = int(headers.get("X-RateLimit-Used-CurrentRequest", 0))
+        retry_time = int(headers.get("Retry-After", 0))  # seconds
 
         return dict(
             calls_per_minute=calls_per_minute,
@@ -95,10 +95,10 @@ class Client:
         limit_info: Dict[str, int] = self._get_limit_info(headers)
         limits: LimitInfo = LimitInfo(
             datetime=datetime.now().astimezone(),
-            calls_per_minute=limit_info['calls_per_minute'],
-            calls_remaining=limit_info['calls_remaining'],
-            calls_consumed=limit_info['calls_consumed'],
-            retry_time=limit_info['retry_time'],
+            calls_per_minute=limit_info["calls_per_minute"],
+            calls_remaining=limit_info["calls_remaining"],
+            calls_consumed=limit_info["calls_consumed"],
+            retry_time=limit_info["retry_time"],
         )
 
         # Store Limits
@@ -110,7 +110,7 @@ class Client:
         # The 'link' header in the response will hold the next page url if
         # exists. If you have reached the last page of objects, then the link
         # header will not be set.
-        pagination_link = headers.get('link', '')
+        pagination_link = headers.get("link", "")
         self.pagination_link = pagination_link  # Hotfix to add this to model
 
         # Location Header:
@@ -120,7 +120,7 @@ class Client:
         # HTTP STATUS: HTTP 201 Created
         # Headers:
         # "Location": https://domain.freshdesk.com/api/v2/tickets/1
-        resource_location = headers.get('Location', '')
+        resource_location = headers.get("Location", "")
         self.resource_location = (
             resource_location  # Hotfix to add this to model  # noqa: 501
         )

@@ -1,4 +1,4 @@
 from typing import Final
 
 
-ENCODING: Final[str] = 'utf-8'
+ENCODING: Final[str] = "utf-8"

@@ -53,8 +53,8 @@ class TestAPIVersion(unittest.TestCase):
         v1 = APIVersion(1)
         v2 = APIVersion(2)
 
-        self.assertEqual(v1.path, '/v1')
-        self.assertEqual(v2.path, '/v2')
+        self.assertEqual(v1.path, "/v1")
+        self.assertEqual(v2.path, "/v2")
 
     def test_constructors(self) -> None:
         """Test the different ways a user would want to generate a version."""

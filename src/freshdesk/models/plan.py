@@ -3,7 +3,7 @@ from types import SimpleNamespace
 
 
 class Plan(Enum):
-    """ A Freshdesk plan. """
+    """A Freshdesk plan."""
 
     BLOSSOM = dict(
         per_minute=100,

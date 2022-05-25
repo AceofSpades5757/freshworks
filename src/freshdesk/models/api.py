@@ -9,4 +9,4 @@ class APIVersion(IntEnum):
 
     def __init__(self, value):
 
-        self.path = f'/v{value}'
+        self.path = f"/v{value}"

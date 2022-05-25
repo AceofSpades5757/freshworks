@@ -5,8 +5,8 @@ from freshdesk.models.plan import Plan
 
 __all__ = [
     # Client
-    'Client',
+    "Client",
     # Enumerators
-    'Plan',
-    'APIVersion',
+    "Plan",
+    "APIVersion",
 ]

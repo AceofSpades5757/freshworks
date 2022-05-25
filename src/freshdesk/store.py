@@ -8,7 +8,7 @@ from freshdesk._constants import ENCODING
 
 @dataclass
 class LimitInfo:
-    """ Represents limit rate information. """
+    """Represents limit rate information."""
 
     datetime: datetime
 
@@ -26,7 +26,7 @@ class LimitInfo:
             calls_consumed,
             retry_time,
         ) = data.decode(ENCODING).split(
-            ';'
+            ";"
         )  # noqa: E501
         return cls(
             datetime=datetime.fromtimestamp(float(timestamp)),
@@ -37,7 +37,7 @@ class LimitInfo:
         )
 
     def to_bytes(self) -> bytes:
-        return ';'.join(
+        return ";".join(
             map(
                 str,
                 [
