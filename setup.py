@@ -7,7 +7,7 @@ with open("README.md", "r") as fin:
 
 setuptools.setup(
     name="freshworks",
-    version="0.0.20",
+    version="0.0.21",
     author="Kyle L. Davis",
     author_email="AceofSpades5757.github@gmail.com",
     url="https://github.com/AceofSpades5757/freshworks",
