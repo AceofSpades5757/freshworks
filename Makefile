@@ -43,15 +43,15 @@ clean:
 	rm -rf dist/
 	# Temporary Files
 	rm -rf __pycache__/
-	rm -rf **/__pycache__/
+	rm -rf */**/__pycache__/
 	rm -rf *.egg-info/
-	rm -rf **/*.egg-info/
+	rm -rf */**/*.egg-info/
 	rm -rf .mypy_cache/
 	# Logs
 	rm -rf logs/
-	rm -rf **/logs/
+	rm -rf */**/logs/
 	rm -rf *.log
-	rm -rf **/*.log
+	rm -rf */**/*.log
 
 build:
 	@echo "Building $(PROJECT_NAME)."
