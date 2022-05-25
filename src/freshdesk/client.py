@@ -4,9 +4,8 @@ from typing import Dict
 from typing import List
 
 import requests
-from freshdesk.enumerators import APIVersion
-from freshdesk.enumerators import Plan
-from freshdesk.enumerators import Resource
+from freshdesk.models.api import APIVersion
+from freshdesk.models.plan import Plan
 from freshdesk.store import LimitInfo
 from requests.models import Response
 

@@ -1,6 +1,6 @@
 from freshdesk.client import Client
-from freshdesk.enumerators import APIVersion
-from freshdesk.enumerators import Plan
+from freshdesk.models.api import APIVersion
+from freshdesk.models.plan import Plan
 
 
 __all__ = [
