@@ -1,9 +1,16 @@
 PROJECT_NAME = "freshworks"
 
-PYTHON = py
 VENV_DIR = .venv
-VENV_PYTHON = ${VENV_DIR}/Scripts/python.exe
-VENV_PIP = ${VENV_DIR}/Scripts/pip.exe
+
+ifeq ($(OS),Windows_NT)
+	PYTHON = py
+	VENV_BIN = ./$(VENV_DIR)/Scripts
+else
+	PYTHON = python3
+	VENV_BIN = ./$(VENV_DIR)/bin
+endif
+VENV_PYTHON = $(VENV_DIR)/Scripts/python
+VENV_PIP = $(VENV_DIR)/Scripts/pip
 
 # Settings
 .DEFAULT_GOAL = help
@@ -19,19 +26,15 @@ help:
 	@echo make publish - Publish to PyPi.
 
 venv:
-	-${PYTHON} -m pip install --upgrade pip
-	${PYTHON} -m pip install --upgrade virtualenv
-	${PYTHON} -m virtualenv .venv
-	-${VENV_PIP} install --upgrade pip
-	${VENV_PIP} install -r requirements.txt
-	${VENV_PIP} install -r dev-requirements.txt
+	$(PYTHON) -m pip install --upgrade pip
+	$(PYTHON) -m pip install --upgrade virtualenv
+	$(PYTHON) -m virtualenv .venv
+	-$(VENV_PIP) install --upgrade pip
+	$(VENV_PIP) install -r requirements.txt
+	$(VENV_PIP) install -r dev-requirements.txt
 
 test:
-	${VENV_PYTHON} -m unittest \
-		discover \
-		--start-directory tests \
-		--pattern *_test.py \
-		--verbose
+	$(VENV_BIN)/tox
 
 clean:
 	@echo "Removing temporary files, caches, and build files."
@@ -53,9 +56,9 @@ clean:
 build:
 	@echo "Building $(PROJECT_NAME)."
 	# Build
-	${VENV_PYTHON} setup.py sdist bdist_wheel
+	$(VENV_PYTHON) setup.py sdist bdist_wheel
 
 publish: build
 	@echo "Deploying $(PROJECT_NAME) to PyPi."
-	${VENV_PIP} install --upgrade twine
-	${VENV_PYTHON} -m twine upload dist/*
+	$(VENV_PIP) install --upgrade twine
+	$(VENV_PYTHON) -m twine upload dist/*
