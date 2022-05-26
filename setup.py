@@ -7,7 +7,7 @@ with open("README.md", "r") as fin:
 
 setuptools.setup(
     name="freshworks",
-    version="0.0.22",
+    version="0.0.23",
     author="Kyle L. Davis",
     author_email="AceofSpades5757.github@gmail.com",
     url="https://github.com/AceofSpades5757/freshworks",
@@ -26,15 +26,13 @@ setuptools.setup(
         "freshcaller": "src/freshcaller",
     },
     test_suite="tests",
-    python_requires=">=3.6",
+    python_requires=">=3.8",
     install_requires=["requests", "python-dateutil"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Development Status :: 2 - Pre-Alpha",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
