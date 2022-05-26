@@ -5,7 +5,7 @@
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/freshworks?label=Python%20Version&logo=python&logoColor=yellow)](https://pypi.org/project/freshworks/)
 [![PyPI - License](https://img.shields.io/pypi/l/freshworks?color=green)](https://github.com/AceofSpades5757/freshworks/blob/main/LICENSE)
 
-<!--[![Tests](https://github.com/AceofSpades5757/freshworks/actions/workflows/test.yml/badge.svg)](https://github.com/AceofSpades5757/freshworks/actions/workflows/test.yml)-->
+[![Tests](https://github.com/AceofSpades5757/freshworks/actions/workflows/test.yml/badge.svg)](https://github.com/AceofSpades5757/freshworks/actions/workflows/test.yml)
 
 [![Read the Docs](https://img.shields.io/readthedocs/freshworks)](https://freshworks.readthedocs.io/en/latest/)
 
