@@ -10,7 +10,7 @@ logs_path.mkdir(exist_ok=True)
 log_file = logs_path / Path(__file__).with_suffix(".log").name
 
 
-LOGGING_CONFIG: dict[str, Any] = dict(
+LOGGING_CONFIG: Dict[str, Any] = dict(
     version=1,
     disable_existing_loggers=False,
     root=dict(
