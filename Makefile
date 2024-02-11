@@ -35,7 +35,7 @@ clean:
 	rm -rf *.log
 	rm -rf */**/*.log
 
-build:
+build: venv
 	@echo "Building $(PROJECT_NAME)."
 	# Build
 	$(VENV_PYTHON) setup.py sdist bdist_wheel
