@@ -12,19 +12,6 @@ endif
 VENV_PYTHON = $(VENV_DIR)/Scripts/python
 VENV_PIP = $(VENV_DIR)/Scripts/pip
 
-# Settings
-.DEFAULT_GOAL = help
-.PHONY: venv test clean build publish
-
-help:
-	@echo Manage $(PROJECT_NAME). Usage:
-	@echo
-	@echo make test - Test $(PROJECT_NAME).
-	@echo make venv - Create virtual environment.
-	@echo make clean - Remove caches, temp files, build files, etc.
-	@echo make build - Build wheels.
-	@echo make publish - Publish to PyPi.
-
 venv:
 	$(PYTHON) -m pip install --upgrade pip
 	$(PYTHON) -m pip install --upgrade virtualenv
@@ -32,9 +19,6 @@ venv:
 	-$(VENV_PIP) install --upgrade pip
 	$(VENV_PIP) install -r requirements.txt
 	$(VENV_PIP) install -r dev-requirements.txt
-
-test:
-	$(VENV_BIN)/tox
 
 clean:
 	@echo "Removing temporary files, caches, and build files."
