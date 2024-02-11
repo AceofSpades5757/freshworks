@@ -17,8 +17,6 @@ venv:
 	$(PYTHON) -m pip install --upgrade virtualenv
 	$(PYTHON) -m virtualenv .venv
 	-$(VENV_PIP) install --upgrade pip
-	$(VENV_PIP) install -r requirements.txt
-	$(VENV_PIP) install -r dev-requirements.txt
 
 clean:
 	@echo "Removing temporary files, caches, and build files."
