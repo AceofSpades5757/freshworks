@@ -9,8 +9,8 @@ else
 	PYTHON = python3
 	VENV_BIN = ./$(VENV_DIR)/bin
 endif
-VENV_PYTHON = $(VENV_DIR)/Scripts/python
 VENV_PIP = $(VENV_DIR)/Scripts/pip
+VENV_PYTHON = $(VENV_BIN)/python
 
 venv:
 	$(PYTHON) -m pip install --upgrade pip
