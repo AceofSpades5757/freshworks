@@ -9,7 +9,7 @@ setuptools.setup(
     name="freshworks",
     version="0.1.0",
     author="Kyle L. Davis",
-    author_email="AceofSpades5757.github@gmail.com",
+    author_email="aceofspades5757.github@gmail.com",
     url="https://github.com/AceofSpades5757/freshworks",
     license="MIT",
     description="Python client library for interacting with Freshworks products.",
