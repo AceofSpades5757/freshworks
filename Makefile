@@ -12,11 +12,16 @@ endif
 VENV_PYTHON = $(VENV_BIN)/python
 VENV_PIP = $(VENV_PYTHON) -m pip
 
+
 venv:
 	$(PYTHON) -m pip install --upgrade pip
 	$(PYTHON) -m pip install --upgrade virtualenv
 	$(PYTHON) -m virtualenv .venv
-	-$(VENV_PIP) install --upgrade pip
+	$(VENV_PIP) install --upgrade pip
+	# Build Dependencies
+	$(VENV_PIP) install --upgrade setuptools wheel
+	# Publish Dependencies
+	$(VENV_PIP) install --upgrade twine
 
 clean:
 	@echo "Removing temporary files, caches, and build files."
@@ -42,5 +47,4 @@ build: venv
 
 publish: build
 	@echo "Deploying $(PROJECT_NAME) to PyPi."
-	$(VENV_PIP) install --upgrade twine
 	$(VENV_PYTHON) -m twine upload dist/*
