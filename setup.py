@@ -17,7 +17,6 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages("src"),
     project_urls={
-        "Documentation": "https://fzflib.readthedocs.io/en/latest/",
         "Author": "https://github.com/AceofSpades5757",
     },
     package_dir={
